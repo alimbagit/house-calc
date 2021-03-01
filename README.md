@@ -1,8 +1,8 @@
-# Crazy Panda Task
+# House Calculator
 
-Проект выполнен по заданию в [вакансии](https://hh.ru/vacancy/42505967) от crazy panda. Cлужит клиентским инструментом для отображения обектов в форме таблицы с возможностью их сортировки и фильтрации.
+Проект служит клиентским инструментом для рассчета стоимости цены конструкций.
 
-Выполнен с использованием таких инструментов как  [react](https://ru.reactjs.org/) и [typescript](https://www.typescriptlang.org/). Для стилизации так же используется [material-ui](https://material-ui.com/ru/).
+Выполнен с использованием таких инструментов как  [react](https://ru.reactjs.org/), [redux-toolkit](https://redux-toolkit.js.org/) и [typescript](https://www.typescriptlang.org/). Для стилизации так же используется [material-ui](https://material-ui.com/ru/).
 
 ### Сборка проекта и запуск
 
@@ -10,4 +10,4 @@
 Предварительно установите зависимости
 
 ### Demo
-Выглядит приложение вот так [https://crazy-panda-task-table.web.app/](https://crazy-panda-task-table.web.app/).
+Выглядит приложение вот так [https://house-calculator.web.app/](https://house-calculator.web.app//).
