@@ -1,15 +1,15 @@
 import React from "react";
-import Layout from "layout";
 import store from "./store";
 import { Provider } from "react-redux";
+import Calc from "components/calc";
 
 const App = () => {
   return (
-    <>
-      <Provider store={store}>
-        <Layout />
-      </Provider>
-    </>
+
+    <Provider store={store}>
+      <Calc />
+    </Provider>
+
   );
 };
 

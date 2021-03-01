@@ -1,28 +1,70 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
+import { CalcState, ResponseDataCalc } from "models";
+import { loadDataFromCalc } from 'services';
 
-export const counterSlice = createSlice({
-  name: 'counter',
-  initialState: {
-    value: 0
+/**Начальные значения состояния приложения */
+const initialState: CalcState = {
+  buildingIndex: 1,
+  materialIndex: 1,
+  sizeX: 10,
+  sizeY: 10,
+  step: 1,
+  height: 1,
+  result: { message: "", result: "" }
+}
+
+export const loadDataCalc = createAsyncThunk('calc/loadDataCalc',
+  async (args, thunkAPI) => {
+    const state = thunkAPI.getState() as CalcState;
+    const response = await loadDataFromCalc(state);
+    return response;
   },
+)
+
+export const calcSlice = createSlice({
+  name: 'calc',
+  initialState,
   reducers: {
-    increment: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
+    /**Увеличивает шаг */
+    nextStep: state => {
+      state.step += 1
     },
-    decrement: state => {
-      state.value -= 1
+    /**Сбрасывает состояние приложения */
+    reset: state => {
+      state.step = initialState.step;
+      state.buildingIndex=initialState.buildingIndex;
+      state.materialIndex=initialState.materialIndex;
+      state.height=initialState.height;
+      state.sizeX=initialState.sizeX;
+      state.sizeY=initialState.sizeY;
+      state.result=initialState.result;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    /**Устанавливает размеры здания */
+    changeSizes: (state, action: PayloadAction<{ sizeX: number; sizeY: number }>) => {
+      state.sizeX = action.payload.sizeX;
+      state.sizeY = action.payload.sizeY;
+    },
+    /**Устанавливает тип материала */
+    changeMaterial: (state, action: PayloadAction<number>) => {
+      state.materialIndex = action.payload;
+    },
+    /**Устанавливает тип здания */
+    changeBuilding: (state, action: PayloadAction<number>) => {
+      state.buildingIndex = action.payload;
+    },
+    /**Усатнавливает количество этажей */
+    changeHeight: (state, action: PayloadAction<number>) => {
+      state.height = action.payload;
     }
+  },
+  extraReducers: builder => {
+    builder.addCase(loadDataCalc.fulfilled, (state, action: PayloadAction<ResponseDataCalc>) => {
+      state.step += 1;
+      state.result = action.payload
+    })
   }
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { changeBuilding, changeMaterial, changeSizes, nextStep, reset, changeHeight } = calcSlice.actions
 
-export default counterSlice.reducer
+export default calcSlice.reducer
