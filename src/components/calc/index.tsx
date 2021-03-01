@@ -33,7 +33,7 @@ const Calc = () => {
       />}
       {currentStep === 4 && <LayoutStage
         key={4}
-        footer={<><ButtonCancel />, <ButtonCalc /></>}
+        footer={<><ButtonCancel /> <ButtonCalc /></>}
         header={<Header subtitle={"Шаг 4"} />}
         middle={<Sizes />}
       />}

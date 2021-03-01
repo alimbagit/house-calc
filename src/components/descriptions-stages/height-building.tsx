@@ -13,16 +13,18 @@ export const HeightBuilding = () => {
   }
 
   return (
-    <E.Wrapper>
+    <>
       <E.Description>Количество этажей(число):</E.Description>
-      <input
-        name={"height"}
-        type={'number'}
-        size={3}
-        onChange={handleChangeInput}
-        title="Введите количество этажей цифрами"
-        value={valueHeight.toString()}
-      />
-    </E.Wrapper>
+      <E.WrapperSizes>
+        <E.InputTextField
+          name={"height"}
+          type={'number'}
+          size={2}
+          onChange={handleChangeInput}
+          title="Введите количество этажей цифрами"
+          value={valueHeight.toString()}
+        />
+      </E.WrapperSizes>
+    </>
   );
 };

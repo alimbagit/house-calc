@@ -10,7 +10,7 @@ export const ButtonNext = () => {
     dispatch(nextStep());
   }
   return (
-    <button onClick={handleClick}>Далее</button>
+    <E.Button onClick={handleClick}>Далее</E.Button>
   );
 };
 
@@ -22,7 +22,7 @@ export const ButtonCancel = () => {
   }
 
   return (
-    <button onClick={handleClick}>Отмена</button>
+    <E.Button onClick={handleClick}>Отмена</E.Button>
   );
 };
 
@@ -34,7 +34,7 @@ export const ButtonCalc = () => {
   }
 
   return (
-    <button onClick={handleClick}>Рассчитать</button>
+    <E.Button onClick={handleClick}>Рассчитать</E.Button>
   );
 };
 
@@ -45,6 +45,6 @@ export const ButtonNewCalc = () => {
     dispatch(reset());
   }
   return (
-    <button onClick={handleClick}>Новый расcчет</button>
+    <E.Button onClick={handleClick}>Новый расcчет</E.Button>
   );
 };

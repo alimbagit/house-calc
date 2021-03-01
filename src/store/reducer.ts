@@ -6,13 +6,14 @@ import { loadDataFromCalc } from 'services';
 const initialState: CalcState = {
   buildingIndex: 1,
   materialIndex: 1,
-  sizeX: 10,
-  sizeY: 10,
+  sizeX: NaN,
+  sizeY: NaN,
   step: 1,
-  height: 1,
+  height: NaN,
   result: { message: "", result: "" }
 }
 
+/**Отправляет зарос на рассчет стоимости здания */
 export const loadDataCalc = createAsyncThunk('calc/loadDataCalc',
   async (args, thunkAPI) => {
     const state = thunkAPI.getState() as CalcState;

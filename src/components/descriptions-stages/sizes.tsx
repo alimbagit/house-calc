@@ -17,22 +17,25 @@ export const Sizes = () => {
   }
 
   return (
-    <E.Wrapper>
+    <>
       <E.Description>Длина стен (в метрах):</E.Description>
-      <input
-        name={"sizex"}
-        type={'number'}
-        size={3}
-        onChange={handleChangeInput}
-        value={valueSizeX.toString()}
-      />
-      <input
-        name={"sizey"}
-        type={'number'}
-        size={3}
-        onChange={handleChangeInput}
-        value={valueSizeY.toString()}
-      />
-    </E.Wrapper>
+      <E.WrapperSizes>
+        <E.InputTextField
+          name={"sizex"}
+          type={'number'}
+          size={2}
+          onChange={handleChangeInput}
+          value={valueSizeX.toString()}
+        />
+        <span style={{ color: '#b3b3b3', margin: '5px' }}>x</span>
+        <E.InputTextField
+          name={"sizey"}
+          type={'number'}
+          size={2}
+          onChange={handleChangeInput}
+          value={valueSizeY.toString()}
+        />
+      </E.WrapperSizes>
+    </>
   );
 };

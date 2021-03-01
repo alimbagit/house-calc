@@ -17,7 +17,7 @@ export const TypeMaterial = () => {
       <E.Description>Материал стен</E.Description>
       <ul>
         {materialTypes.map((type, index) => (
-          <li key={index} onClick={() => handleClickType(index+1)}>{type}</li>
+          <E.InputChangeType key={index} onClick={() => handleClickType(index+1)}>{type}</E.InputChangeType>
         ))}
       </ul>
     </E.Wrapper>

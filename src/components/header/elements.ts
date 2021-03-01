@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
-export const Wrapper=styled.div`
-    
+export const Wrapper = styled.div`
+
 `;
 
-export const HeaderText=styled.h2`
-    
+export const HeaderText = styled.h3`
+    text-align:center;
 `;
 
-export const Subtitle=styled.div`
-    
+export const Subtitle = styled.p`
+    text-align:center;
+    color:gray;
 `;

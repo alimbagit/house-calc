@@ -8,9 +8,12 @@ export const ResponseMessage = () => {
 
   return (
     <E.Wrapper>
-      {valueResult.result == "ok" ? <E.Description>Успешно</E.Description>
-        : <E.Description>Ошибка:</E.Description>}
-      <E.Description>{valueResult.message}</E.Description>
+      {valueResult.result == "ok" ? <> <E.Description>Успешно</E.Description>
+        <E.ResponseMessage>{valueResult.message}</E.ResponseMessage></>
+        : <><E.Description>Ошибка:</E.Description>
+          <E.ResponseMessage style={{ color: '#DC143C' }}>{valueResult.message}</E.ResponseMessage>
+        </>}
+
     </E.Wrapper>
   );
 };
